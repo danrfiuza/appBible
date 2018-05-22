@@ -1,0 +1,20 @@
+<h3>Livros</h3>
+<div class="grid grid-pad">
+  <label for="livro">Livro:</label>
+  <select class="col-1-4" [ngModel]="selectedDeviceObj" (ngModelChange)="getCapitulos($event)">
+  <option *ngFor="let livro of livros" [ngValue]="livro">{{livro.name}}</option>
+  </select>
+    <label for="capitulo">Capítulo</label>
+    <select class="col-1-4" [ngModel]="selectedDeviceObj" (ngModelChange)="getVersiculos($event)">
+      <option *ngFor="let capitulo of capitulos" ([ngModel])="capitulos" ([ngValue])="capituloSelecionado">{{capitulo.numero}}</option>
+    </select>
+
+    <label for="capitulo">Versículo</label>
+    <select class="col-1-4" [ngModel]="selectedDeviceObj" (ngModelChange)="verVersiculo($event)">
+      <option *ngFor="let versiculo of listaVersiculos" ([ngModel])="listaVersiculos" ([ngValue])="versiculo.numero">{{versiculo.numero}}</option>
+    </select>
+    <h3 ([ngModel])="strVersiculo">{{strVersiculo}}</h3>
+    <ul style="list-style-type:decimal;">
+      <li *ngFor="let versiculo of versiculos" ([ngModel])="versiculos"><p align="left">{{versiculo}}</p><hr></li>  
+    </ul>
+</div>
