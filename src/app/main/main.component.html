@@ -14,7 +14,7 @@
       <option *ngFor="let versiculo of listaVersiculos" ([ngModel])="listaVersiculos" ([ngValue])="versiculo.numero">{{versiculo.numero}}</option>
     </select>
     <h3 ([ngModel])="strVersiculo">{{strVersiculo}}</h3>
-    <ul style="list-style-type:decimal;">
+    <ul style="list-style-type:decimal;" *ngIf="!strVersiculo">
       <li *ngFor="let versiculo of versiculos" ([ngModel])="versiculos"><p align="left">{{versiculo}}</p><hr></li>  
     </ul>
 </div>
