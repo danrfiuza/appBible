@@ -23,7 +23,6 @@ export class MainComponent implements OnInit {
   }
 
   getLivros(): void {
-    this.capitulos = [];
     this.mainService.getLivros()
       .subscribe((livros) => this.livros = livros);
   }
@@ -31,7 +30,7 @@ export class MainComponent implements OnInit {
   getCapitulos(livro: Livro):void {
     this.capituloSelecionado = 0;
     this.livroSelecionado = livro;
-
+    this.capitulos = [];
     this.livroSelecionado.chapters.forEach((item, index) => {
       this.capitulos.push({"numero" : index + 1});
     });
@@ -39,6 +38,7 @@ export class MainComponent implements OnInit {
   }
 
   getVersiculos(capitulo: number,versiculo: number = null): void {
+    this.listaVersiculos = [];
     this.capituloSelecionado = capitulo;
     this.livroSelecionado.chapters[capitulo - 1].forEach((item, index) => {
       this.listaVersiculos.push({ "numero": index + 1 });
