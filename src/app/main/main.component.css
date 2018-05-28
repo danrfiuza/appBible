@@ -1,0 +1,9 @@
+.expand{
+    font-size: xx-large;
+    height: 200%;
+}
+.shrink{
+    font-size: small;
+    height: 100%;
+    width: 100%;
+}

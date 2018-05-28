@@ -41,11 +41,16 @@
   </mat-grid-tile>
 
 </mat-grid-list >
-  <mat-card *ngIf="strVersiculo" ([ngModel])="strVersiculo">
+  <mat-card 
+  *ngIf="strVersiculo" 
+  ([ngModel])="strVersiculo" 
+  [ngClass]="expandir ? 'expand' : 'shrink'"
+  (click)="fullScreenToggle()"
+  >
     <mat-card-content>
       <h1 style="align:left;font-size: large;">{{versiculoSelecionado}} - {{strVersiculo}}</h1>
     </mat-card-content>
   </mat-card>
-  <ul style="list-style-type:decimal;" *ngIf="!strVersiculo">
-    <li *ngFor="let versiculo of versiculos" ([ngModel])="versiculos"><p align="left">{{versiculo}}</p><hr></li>
-  </ul>
+  <mat-list *ngIf="!strVersiculo">
+    <mat-list-item *ngFor="let versiculo of versiculos" ([ngModel])="versiculos"><p align="left">{{versiculo}}</p><hr></mat-list-item>
+  </mat-list>

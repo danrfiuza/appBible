@@ -2,7 +2,7 @@ import { Capitulo } from './../capitulo';
 import { Livro } from './../livro';
 import { MainService } from './../main.service';
 import { Component, OnInit } from '@angular/core';
-
+import { ElectronService } from 'ngx-electron';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -11,15 +11,22 @@ import { Component, OnInit } from '@angular/core';
 export class MainComponent implements OnInit {
   livros: Livro[];
   capitulos: Array<any> = [];
-  constructor(private mainService: MainService) { }
   livroSelecionado : Livro;
   capituloSelecionado  : number = 0;
   versiculoSelecionado : number = 0;
   versiculos : Array<String>;
   strVersiculo : String;
   listaVersiculos : Array<any> = [];
+  expandir = false;
+  constructor(private mainService: MainService, private electronService: ElectronService) { }
+
   ngOnInit() {
     this.getLivros();
+  }
+
+  fullScreenToggle(): void {
+    this.electronService.ipcRenderer.send('goFullScreen');
+    this.expandir = !this.expandir;
   }
 
   getLivros(): void {

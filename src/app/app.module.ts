@@ -1,3 +1,4 @@
+import { NgxElectronModule } from 'ngx-electron';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -10,7 +11,7 @@ import { MainService } from './main.service';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule,MatIconModule,MatSelectModule,MatOptionModule} from '@angular/material';  
+import { MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule,MatIconModule,MatSelectModule,MatOptionModule,MatListModule} from '@angular/material';  
 import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
@@ -37,6 +38,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatGridListModule,
     MatSelectModule,
     MatOptionModule,
+    NgxElectronModule,
+    MatListModule
   ],
   providers: [
     MainService
