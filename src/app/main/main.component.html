@@ -1,20 +1,51 @@
-<h3>Livros</h3>
-<div class="grid grid-pad">
-  <label for="livro">Livro:</label>
-  <select class="col-1-4" [ngModel]="selectedDeviceObj" (ngModelChange)="getCapitulos($event)">
-  <option *ngFor="let livro of livros" [ngValue]="livro">{{livro.name}}</option>
-  </select>
-    <label for="capitulo">Capítulo</label>
-    <select class="col-1-4" [ngModel]="selectedDeviceObj" (ngModelChange)="getVersiculos($event)">
-      <option *ngFor="let capitulo of capitulos" ([ngModel])="capitulos" ([ngValue])="capituloSelecionado">{{capitulo.numero}}</option>
-    </select>
+<mat-grid-list cols="3" rowHeight="2:1">
+  <mat-grid-tile>
+    <mat-select 
+    class="col-1-4"
+    [ngModel]="livros"
+    (ngModelChange)="getCapitulos($event)"
+    placeholder="Livro"
+    >
+      <mat-option *ngFor="let livro of livros" [value]="livro">{{livro.name}}</mat-option>
+    </mat-select>
+  </mat-grid-tile>
 
-    <label for="capitulo">Versículo</label>
-    <select class="col-1-4" [ngModel]="selectedDeviceObj" (ngModelChange)="verVersiculo($event)">
-      <option *ngFor="let versiculo of listaVersiculos" ([ngModel])="listaVersiculos" ([ngValue])="versiculo.numero">{{versiculo.numero}}</option>
-    </select>
-    <h3 ([ngModel])="strVersiculo">{{strVersiculo}}</h3>
-    <ul style="list-style-type:decimal;" *ngIf="!strVersiculo">
-      <li *ngFor="let versiculo of versiculos" ([ngModel])="versiculos"><p align="left">{{versiculo}}</p><hr></li>  
-    </ul>
-</div>
+  <mat-grid-tile>
+    <mat-select 
+      [ngModel]="capitulos" 
+      (ngModelChange)="getVersiculos($event)"
+      placeholder="Capítulo"
+      >
+      <mat-option 
+        *ngFor="let capitulo of capitulos" 
+        ([ngModel])="capitulos" 
+        [value]="capitulo.numero"
+      >Capítulo: {{capitulo.numero}}
+      </mat-option>
+    </mat-select>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <mat-select 
+    [ngModel]="listaVersiculos"
+    (ngModelChange)="verVersiculo($event)"
+    placeholder="Versículo"
+    >
+      <mat-option 
+        *ngFor="let versiculo of listaVersiculos" 
+        ([ngModel])="listaVersiculos" 
+          [value]="versiculo.numero"
+      >Versículo: {{versiculo.numero}}
+      </mat-option>
+    </mat-select>
+  </mat-grid-tile>
+
+</mat-grid-list >
+  <mat-card *ngIf="strVersiculo" ([ngModel])="strVersiculo">
+    <mat-card-content>
+      <h1 style="align:left;font-size: large;">{{versiculoSelecionado}} - {{strVersiculo}}</h1>
+    </mat-card-content>
+  </mat-card>
+  <ul style="list-style-type:decimal;" *ngIf="!strVersiculo">
+    <li *ngFor="let versiculo of versiculos" ([ngModel])="versiculos"><p align="left">{{versiculo}}</p><hr></li>
+  </ul>

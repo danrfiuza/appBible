@@ -9,7 +9,7 @@ export class MainService {
   constructor(private http: Http) { }
 
   getLivros(): Observable<Livro[]> {
-    return this.http.get('./assets/aa.json')
+    return this.http.get('./assets/acf.json')
     .map((resp: Response) => resp.json());
   }
 }

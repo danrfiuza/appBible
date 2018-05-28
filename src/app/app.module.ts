@@ -9,7 +9,9 @@ import { VersiculosComponent } from './versiculos/versiculos.component';
 import { MainService } from './main.service';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule,MatIconModule,MatSelectModule,MatOptionModule} from '@angular/material';  
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,19 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatGridListModule,
+    MatSelectModule,
+    MatOptionModule,
   ],
   providers: [
     MainService

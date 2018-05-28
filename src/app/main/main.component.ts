@@ -37,24 +37,20 @@ export class MainComponent implements OnInit {
     this.versiculos = [];
   }
 
-  getVersiculos(capitulo: number,versiculo: number = null): void {
+  getVersiculos(capitulo: number): void {
     this.listaVersiculos = [];
     this.strVersiculo = '';
     this.capituloSelecionado = capitulo;
     this.livroSelecionado.chapters[capitulo - 1].forEach((item, index) => {
       this.listaVersiculos.push({ "numero": index + 1 });
     });
-    if(versiculo){
-      this.versiculos = this.livroSelecionado.chapters[capitulo - 1][versiculo -1];
-    }else {
-      this.versiculos = this.livroSelecionado.chapters[capitulo - 1];
-    }
+    this.versiculos = this.livroSelecionado.chapters[capitulo - 1];
   }
 
   verVersiculo(versiculo : number) : void {
-    let v : Number = versiculo -1;
-    let c: Number = this.capituloSelecionado -1;
-    console.log(c);
+    this.versiculoSelecionado = versiculo;
+    let v = versiculo -1;
+    let c = this.capituloSelecionado -1;
     this.strVersiculo = this.livroSelecionado.chapters[c][v];
   }
 }

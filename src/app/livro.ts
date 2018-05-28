@@ -1,5 +1,5 @@
 export class Livro {
     abbrev: string;
     name: string;
-    chapters: Array<String>;
+    chapters: Array<any>;
 }
